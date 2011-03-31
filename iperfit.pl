@@ -24,7 +24,7 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #---------------------------------------------------------------------------------------------------------------------------------
 my $program_name = "IperfiT.pl";
-my $program_version =  "0.1";
+my $program_version =  "0.2";
 
 # Libraries
 use Getopt::Std;
@@ -181,7 +181,7 @@ printmsg "Test is finished\n";
 
 # Stop the Iperf server (using SSH)
 printmsg "Stop the Iperf server\n";
-my $ssh_cmd_iperf_server_stop = "$ssh_cmd -f labo\@$server_ip $kill_cmd -9 iperf";
+my $ssh_cmd_iperf_server_stop = "$ssh_cmd -f $server_user\@$server_ip $kill_cmd -9 iperf";
 printmsg $ssh_cmd_iperf_server_stop."\n";
 $result = system($ssh_cmd_iperf_server_stop);
 if ($result != 0) {
